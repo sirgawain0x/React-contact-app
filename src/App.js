@@ -25,14 +25,14 @@ class App extends Component {
     ContactsAPI.remove(contact)
   }
 
-  editContact = (contact) => {
-    ContactsAPI.edit(contact).then(() => {
-      this.setState(state => ({
-        ...state.contacts
-      }))
-    })
+  // editContact = (contact) => {
+  //   ContactsAPI.edit(contact).then(() => {
+  //     this.setState(state => ({
+  //       ...state.contacts
+  //     }))
+  //   })
 
-  }
+  // }
 
   createContact(contact) {
     ContactsAPI.create(contact).then(contact => {

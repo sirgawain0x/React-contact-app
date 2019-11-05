@@ -10,8 +10,7 @@ import sortBy from 'sort-by'
 class ListContacts extends Component {
   static propTypes = {
     contacts: PropTypes.array.isRequired,
-    onDeleteContact: PropTypes.func.isRequired,
-    onEditContact: PropTypes.func.isRequired
+    onDeleteContact: PropTypes.func.isRequired
   }
 
   state = {
@@ -27,7 +26,7 @@ class ListContacts extends Component {
   }
 
   render() {
-    const { contacts, onDeleteContact, onEditContact } = this.props
+    const { contacts, onDeleteContact } = this.props
     const { query } = this.state
     let showingContacts
 
@@ -77,7 +76,7 @@ class ListContacts extends Component {
                 <p>{contact.contactNumber}</p>
                 <p>{contact.designation}</p>
               </div>
-              <button className='contact-edit' onClick={() => onEditContact(contact)}>Edit</button>
+              <button className='contact-edit'>Edit</button>
               <button className='contact-remove' onClick={() => onDeleteContact(contact)}>
                 Remove
               </button>
@@ -88,32 +87,6 @@ class ListContacts extends Component {
     )
   }
 }
-
-
-// Functional components or Stateless functional component
-// for 'read-only' immutable data
-// since it only do one task of rendering and returning html
-
-// function ListContacts(props) {
-//   return (
-//     <ol className='contact-list'>
-//       {props.contacts.map( contact => (
-//         <li key={contact.id} className='contact-list-item'>
-//           <div className='contact-avatar' style={{
-//             backgroundImage: `url(${contact.avatarURL})`
-//           }}> </div>
-//           <div className='contact-details'>
-//             <p>{contact.name}</p>
-//             <p>{contact.email}</p>
-//           </div>
-//           <button className='contact-remove' onClick={() => props.onDeleteContact(contact)}>
-//             Remove
-//           </button>
-//         </li>
-//       ))}
-//     </ol>
-//   )
-// }
 
 
 
